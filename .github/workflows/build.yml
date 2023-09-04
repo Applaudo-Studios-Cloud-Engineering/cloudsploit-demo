@@ -2,7 +2,7 @@ name: Build cloudsploit
 
 on:
   push:
-    branches: [ main ]
+    branches: [ initial-build ]
   pull_request:
     branches: [ opened, synchronize, reopened ]
 
