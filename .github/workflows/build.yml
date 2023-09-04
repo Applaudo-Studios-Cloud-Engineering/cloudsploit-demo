@@ -35,3 +35,20 @@ jobs:
 
     - name: Test Cloudsploit build
       run: node cloudsploit/index.js --help
+
+    - id: setup-tools
+      uses: buildpacks/github-actions/setup-tools@v5.4.0
+
+    - id: setup-pack
+      uses: buildpacks/github-actions/setup-pack@v5.4.0
+
+    - id: package
+      run: |
+        #!/usr/bin/env bash
+        set -euo pipefail
+        cd cloudsploit
+        pack build cloudsploit --buildpack paketo-buildpacks/nodejs   --builder paketobuildpacks/builder:base     
+      shell: bash
+
+    - name: Docker Run Container
+      run: docker run cloudsploit --help
