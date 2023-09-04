@@ -37,10 +37,10 @@ jobs:
       run: node cloudsploit/index.js --help
 
     - id: setup-tools
-      uses: buildpacks/github-actions/setup-tools@v5.1.0
+      uses: buildpacks/github-actions/setup-tools@v5.4.0
 
     - id: setup-pack
-      uses: buildpacks/github-actions/setup-pack@v5.1.0
+      uses: buildpacks/github-actions/setup-pack@v5.4.0
 
     - id: package
       run: |
@@ -49,3 +49,6 @@ jobs:
         cd cloudsploit
         pack build cloudsploit --buildpack paketo-buildpacks/nodejs   --builder paketobuildpacks/builder:base     
       shell: bash
+
+    - name: Docker Run Container
+      run: docker run cloudsploit --help
