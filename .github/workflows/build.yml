@@ -46,5 +46,6 @@ jobs:
       run: |
         #!/usr/bin/env bash
         set -euo pipefail
+        cd cloudsploit
         pack build cloudsploit --buildpack paketo-buildpacks/nodejs   --builder paketobuildpacks/builder:base     
       shell: bash
