@@ -19,16 +19,19 @@ jobs:
         node-version: [18.x]
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v2
       with:
         submodules: 'true'
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: cloudsploit/package.json
         
-    - run: npm install --prefix cloudsploit
+    - name: Install Cloudsploit dependencies
+      run: npm install --prefix cloudsploit
 
-    - run: node cloudsploit/index.js --help
+    - name: Test Cloudsploit build
+      run: node cloudsploit/index.js --help
