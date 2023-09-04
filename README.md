@@ -22,7 +22,7 @@ cd cloudsploit
 pack build cloudsploit --buildpack paketo-buildpacks/nodejs   --builder paketobuildpacks/builder:base
 ```
 
-# Runninc CLI
+# Running CLI
 
 ```
 docker run cloudsploit --help
