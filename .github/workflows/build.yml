@@ -19,7 +19,7 @@ jobs:
         node-version: [18.x]
 
     steps:
-    - name: "Checkout Repository"
+    - name: Checkout Repository
       uses: actions/checkout@v2
       with:
         submodules: 'true'
@@ -30,8 +30,8 @@ jobs:
         cache: 'npm'
         cache-dependency-path: cloudsploit/package.json
         
-    - name: "Install Cloudsploit dependencies"
+    - name: Install Cloudsploit dependencies
       run: npm install --prefix cloudsploit
 
-    - name: "Test Cloudsploit build"
+    - name: Test Cloudsploit build
       run: node cloudsploit/index.js --help
